@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 const handle = require("./handlers");
 const connectDB = require("./config/dbConnection");
+const mongoose = require("mongoose");
 const PORT = process.env.PORT || 4000;
 
 //Connect to mongoDB
@@ -17,19 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.json({ hello: "world" }));
+app.use("/api/auth", routes.auth);
 
-app.use((req, res, next) => {
-  const err = new Error("Not found");
-  err.status = 404;
-
-  next(err);
-});
-
-app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({
-    err: err.message || "Something went wrong",
-  });
-});
+app.use(handle.notFound);
+app.use(handle.errors);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
