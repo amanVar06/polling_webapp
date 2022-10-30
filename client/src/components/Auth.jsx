@@ -42,13 +42,6 @@ const Auth = ({ authType }) => {
     }
   }
 
-  function logout() {
-    localStorage.clear();
-    setToken(null);
-    dispatch(setCurrentUser({}));
-    dispatch(removeError());
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);

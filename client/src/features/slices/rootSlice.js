@@ -29,6 +29,8 @@ const rootSlice = createSlice({
     },
     setPolls(state, action) {
       state.polls = action.payload;
+      // state.polls = action.payload;
+      //can we user state.polls.push here
     },
     setCurrentPoll(state, action) {
       state.currentPoll = action.payload;
@@ -38,6 +40,8 @@ const rootSlice = createSlice({
 
 export const selectError = (state) => state.root.error;
 export const selectAuth = (state) => state.root.auth;
+export const selectPolls = (state) => state.root.polls;
+export const selectCurrentPoll = (state) => state.root.currentPoll;
 
 export const {
   addError,
