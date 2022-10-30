@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setPolls,
@@ -68,8 +68,12 @@ const Polls = () => {
   // }
 
   const handleClick = (id) => {
-    navigate(`polls/${id}`);
+    navigate(`/polls/${id}`);
   };
+
+  // const handleClick = (id) => {
+  //   getCurrentPoll(id);
+  // };
 
   const allPolls = polls?.map((poll) => (
     <li onClick={() => handleClick(poll._id)} key={poll._id}>

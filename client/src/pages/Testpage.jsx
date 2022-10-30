@@ -10,8 +10,8 @@ const Testpage = () => {
   return (
     <div>
       <ErrorMessage error={error} />
-      <Poll />
-      {/* <Polls /> */}
+      {/* <Poll /> */}
+      <Polls />
     </div>
   );
 };
