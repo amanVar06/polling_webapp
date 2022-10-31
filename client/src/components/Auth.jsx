@@ -76,7 +76,7 @@ const Auth = ({ authType }) => {
           autoComplete="off"
           className="form-input"
         />
-        <div className="buttons_center">
+        <div className="button_center">
           <button className="button" type="submit">
             Submit
           </button>

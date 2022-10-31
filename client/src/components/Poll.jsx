@@ -49,6 +49,7 @@ const Poll = ({ pollId }) => {
     currentPoll.options &&
     currentPoll.options.map((option) => (
       <button
+        className="button"
         onClick={() => vote(currentPoll._id, { answer: option.option })}
         key={option._id}
       >
@@ -92,14 +93,16 @@ const Poll = ({ pollId }) => {
 
   return (
     <div>
-      <h3>{currentPoll?.question}</h3>
-      <div>{answers}</div>
-      <Chart
-        options={chartData.options}
-        series={chartData.series}
-        type="pie"
-        width={600}
-      />
+      <h3 className="poll-title">{currentPoll?.question}</h3>
+      <div className="button_center">{answers}</div>
+      <div className="button_center">
+        <Chart
+          options={chartData.options}
+          series={chartData.series}
+          type="pie"
+          width={600}
+        />
+      </div>
     </div>
   );
 };
