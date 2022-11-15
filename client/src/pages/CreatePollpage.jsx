@@ -9,9 +9,9 @@ const CreatePollpage = () => {
   const auth = useSelector(selectAuth);
 
   console.log(auth);
-  //   if (!auth.isAuthenticated) {
-  //     return <Navigate to="/login" replace={true} />;
-  //   }
+  if (!auth.isAuthenticated) {
+    return <Navigate to="/login" replace={true} />;
+  }
 
   return (
     <div>
